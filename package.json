@@ -1,0 +1,25 @@
+{
+  "name": "saplu-ludu-game",
+  "version": "1.0.0",
+  "description": "সাপলুডু (Snake & Ladder) ও লুডু (Ludo) — বাংলা বোর্ড গেম, Capacitor/Cordova দিয়ে অ্যান্ড্রয়েড অ্যাপ বানানোর জন্য প্রস্তুত।",
+  "private": true,
+  "scripts": {
+    "start": "npx serve www -l 8080"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/android": "^6.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0"
+  },
+  "keywords": [
+    "ludo",
+    "snake-and-ladder",
+    "saplu",
+    "bengali",
+    "board-game",
+    "capacitor"
+  ],
+  "license": "MIT"
+}

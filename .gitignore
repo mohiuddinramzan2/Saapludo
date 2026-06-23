@@ -1,0 +1,18 @@
+node_modules/
+dist/
+
+# android/ ফোল্ডারটি কমিট হবে (GitHub Actions এটা দিয়েই APK বানায়),
+# কিন্তু তার ভেতরের বিল্ড-আউটপুট/ক্যাশ ফাইলগুলো বাদ থাকবে
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/captures/
+ios/
+*.apk
+*.aab
+*.keystore
+.DS_Store
+*.log
+www/.well-known/

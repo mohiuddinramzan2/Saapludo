@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>সাপলুডু</title>
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="icon-btn" href="../index.html" aria-label="হোমে ফিরুন">←</a>
+    <h1>🐍 সাপলুডু</h1>
+    <button class="icon-btn" id="restartBtn" aria-label="নতুন খেলা">⟳</button>
+  </header>
+
+  <main class="game-shell">
+    <section class="board-wrap">
+      <div id="board" class="board" role="grid" aria-label="সাপলুডু বোর্ড"></div>
+    </section>
+
+    <section class="control-panel">
+      <div class="turn-banner" id="turnBanner">
+        <span class="turn-dot" id="turnDot"></span>
+        <span id="turnText">প্লেয়ার ১-এর পালা</span>
+      </div>
+
+      <div class="dice-row">
+        <div class="dice" id="dice" aria-live="polite">
+          <span id="diceFace">🎲</span>
+        </div>
+        <button class="btn" id="rollBtn">ডাইস ছুঁড়ুন</button>
+      </div>
+
+      <ul class="player-list" id="playerList"></ul>
+
+      <p class="hint" id="hintText">শুরু করতে "ডাইস ছুঁড়ুন"-এ চাপ দিন। ৬ পড়লে আবার চান্স!</p>
+    </section>
+  </main>
+
+  <!-- সেটআপ ওভারলে -->
+  <div class="overlay" id="setupOverlay">
+    <div class="modal">
+      <h2>নতুন সাপলুডু খেলা</h2>
+      <p class="modal-sub">কতজন খেলবে বেছে নিন</p>
+      <div class="count-row" id="countRow">
+        <button class="count-btn" data-count="2">২ জন</button>
+        <button class="count-btn" data-count="3">৩ জন</button>
+        <button class="count-btn" data-count="4">৪ জন</button>
+      </div>
+      <div id="nameInputs" class="name-inputs"></div>
+      <button class="btn" id="startGameBtn">খেলা শুরু করুন</button>
+    </div>
+  </div>
+
+  <!-- জয়ী ওভারলে -->
+  <div class="overlay" id="winOverlay" hidden>
+    <div class="modal">
+      <div class="confetti">🎉</div>
+      <h2 id="winText">জয়ী হয়েছেন!</h2>
+      <p class="modal-sub">অভিনন্দন!</p>
+      <div class="btn-row">
+        <button class="btn" id="playAgainBtn">আবার খেলুন</button>
+        <a class="btn secondary" href="../index.html">হোমে ফিরুন</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

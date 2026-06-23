@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>সাপলুডু ও লুডু</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#101b2c">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/common.css">
+<style>
+  .home-wrap{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px 36px;
+    position: relative;
+  }
+
+  /* মৃদু ব্যাকগ্রাউন্ড টেক্সচার — হাতে আঁকা বিন্দুর প্যাটার্ন */
+  .home-wrap::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: radial-gradient(rgba(245,230,200,.05) 1.6px, transparent 1.6px);
+    background-size: 26px 26px;
+    pointer-events:none;
+  }
+
+  .brand{
+    text-align:center;
+    margin-bottom: 8px;
+    z-index:1;
+  }
+  .brand .dice{
+    font-size: 2.6rem;
+    display:inline-block;
+    animation: toss 2.6s ease-in-out infinite;
+    transform-origin: center;
+  }
+  @keyframes toss{
+    0%, 100%{ transform: rotate(-8deg) translateY(0); }
+    50%{ transform: rotate(10deg) translateY(-6px); }
+  }
+  .brand h1{
+    font-size: clamp(1.9rem, 6vw, 2.7rem);
+    color: var(--paper);
+    letter-spacing: .5px;
+    margin-top: 6px;
+  }
+  .brand p{
+    color: var(--saffron-2);
+    font-size: 1.02rem;
+    margin-top: 6px;
+    font-weight: 600;
+  }
+
+  .cards{
+    display:flex;
+    gap: 26px;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin-top: 38px;
+    width: 100%;
+    max-width: 880px;
+    z-index: 1;
+  }
+
+  .game-card{
+    flex: 1 1 320px;
+    max-width: 380px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(160deg, var(--night-3), var(--night-2));
+    box-shadow: var(--shadow-deep);
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    transition: transform .2s ease;
+  }
+  .game-card:hover{ transform: translateY(-6px); }
+
+  .card-art{
+    height: 168px;
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .card-art .emoji{ font-size: 4.6rem; filter: drop-shadow(0 8px 14px rgba(0,0,0,.45)); }
+
+  /* সাপলুডু কার্ডের আর্ট — জিগজ্যাগ বোর্ড প্যাটার্ন */
+  .saplu-art{
+    background:
+      linear-gradient(135deg, #2d7a39 25%, transparent 25.5%) 0 0/40px 40px,
+      linear-gradient(135deg, transparent 74.5%, #2d7a39 75%) 0 0/40px 40px,
+      linear-gradient(135deg, #3FA34D 25%, transparent 25.5%, transparent 74.5%, #3FA34D 75%) 0 0/40px 40px,
+      #2b8a3d;
+  }
+  /* লুডু কার্ডের আর্ট — চার রঙের কোয়াড্রেন্ট */
+  .ludo-art{
+    background: conic-gradient(var(--red) 0 90deg, var(--green) 90deg 180deg, var(--yellow) 180deg 270deg, var(--blue) 270deg 360deg);
+  }
+
+  .card-body{
+    padding: 18px 20px 22px;
+    text-align:center;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap: 6px;
+  }
+  .card-body h2{
+    font-size: 1.5rem;
+    color: var(--paper);
+  }
+  .card-body .sub{
+    color: rgba(245,230,200,.7);
+    font-size: .92rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .card-body .btn{ margin-top: auto; align-self:center; }
+
+  footer{
+    margin-top: 40px;
+    color: rgba(245,230,200,.45);
+    font-size: .82rem;
+    text-align:center;
+    z-index:1;
+  }
+</style>
+</head>
+<body>
+  <div class="home-wrap">
+    <div class="brand">
+      <span class="dice">🎲</span>
+      <h1>সাপলুডু ও লুডু</h1>
+      <p>একসাথে খেলুন, পালা করে খেলুন</p>
+    </div>
+
+    <div class="cards">
+      <a class="game-card" href="saplu/index.html" style="text-decoration:none;">
+        <div class="card-art saplu-art"><span class="emoji">🐍</span></div>
+        <div class="card-body">
+          <h2>সাপলুডু</h2>
+          <p class="sub">১০০ ঘরের ক্লাসিক বোর্ড · ২–৪ জন</p>
+          <span class="btn">খেলা শুরু করুন</span>
+        </div>
+      </a>
+
+      <a class="game-card" href="ludo/index.html" style="text-decoration:none;">
+        <div class="card-art ludo-art"><span class="emoji">🏠</span></div>
+        <div class="card-body">
+          <h2>লুডু</h2>
+          <p class="sub">৪ রঙের গুটি, কাটাকাটি ও সেফ ঘর · ২–৪ জন</p>
+          <span class="btn">খেলা শুরু করুন</span>
+        </div>
+      </a>
+    </div>
+
+    <footer>একই ডিভাইসে পালা করে খেলার জন্য তৈরি</footer>
+  </div>
+</body>
+</html>

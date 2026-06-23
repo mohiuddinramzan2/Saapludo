@@ -1,0 +1,135 @@
+/* =========================================================
+   common.css — শেয়ার্ড ডিজাইন টোকেন (সাপলুডু + লুডু)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+
+:root{
+  /* --- পরিচিত রঙ (পুরো অ্যাপ জুড়ে) --- */
+  --ink:        #2B2118;
+  --paper:      #F5E6C8;
+  --paper-dim:  #e9d7ad;
+  --night:      #101b2c;
+  --night-2:    #1B2A41;
+  --night-3:    #22344d;
+  --saffron:    #E8A33D;
+  --saffron-2:  #f2bc6b;
+
+  --red:        #D64545;
+  --red-dim:    #a83333;
+  --green:      #3FA34D;
+  --green-dim:  #2d7a39;
+  --yellow:     #E0B400;
+  --yellow-dim: #ad8a00;
+  --blue:       #3866C2;
+  --blue-dim:   #294c94;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 26px;
+
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.35);
+  --shadow-deep: 0 18px 46px rgba(0,0,0,.5);
+
+  --font-display: 'Baloo Da 2', 'Noto Sans Bengali', sans-serif;
+  --font-body: 'Noto Sans Bengali', 'Baloo Da 2', sans-serif;
+}
+
+*{ box-sizing: border-box; }
+html,body{ margin:0; padding:0; }
+
+body{
+  font-family: var(--font-body);
+  background: radial-gradient(ellipse at top, var(--night-3), var(--night) 70%);
+  color: var(--paper);
+  min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+/* ঐতিহ্যবাহী কাঁথা-স্টিচ প্যাটার্নের পাতলা বর্ডার, কার্ড/হেডারে ব্যবহারের জন্য */
+.kantha-edge{
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0 6px, rgba(232,163,61,.55) 6px 7px),
+    repeating-linear-gradient(-45deg, transparent 0 6px, rgba(232,163,61,.35) 6px 7px);
+  background-size: 18px 3px, 18px 3px;
+  background-repeat: repeat-x;
+  background-position: top, bottom;
+  height: 3px;
+}
+
+h1,h2,h3,h4{
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+button{
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline-offset: 3px;
+}
+button:focus-visible{ outline: 3px solid var(--saffron-2); }
+
+a{ color: inherit; }
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: .85em 1.6em;
+  border-radius: 999px;
+  background: var(--saffron);
+  color: var(--night);
+  box-shadow: 0 6px 0 var(--saffron-dim, #b87f24), var(--shadow-soft);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:active{
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #b87f24, var(--shadow-soft);
+}
+.btn.secondary{
+  background: transparent;
+  color: var(--paper);
+  box-shadow: inset 0 0 0 2px rgba(245,230,200,.45);
+}
+.btn.secondary:active{ box-shadow: inset 0 0 0 2px rgba(245,230,200,.7); }
+.btn:disabled{ opacity:.45; cursor:not-allowed; transform:none; }
+
+.btn-row{ display:flex; gap:.7em; flex-wrap:wrap; justify-content:center; }
+
+/* মোডাল / ওভারলে — দুই গেমেই কমন */
+.overlay{
+  position: fixed; inset: 0;
+  background: rgba(8,12,20,.72);
+  backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+.overlay[hidden]{ display:none; }
+
+.modal{
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-deep);
+  position: relative;
+  animation: pop-in .28s cubic-bezier(.2,1.4,.4,1);
+}
+@keyframes pop-in{
+  from{ transform: scale(.85) translateY(10px); opacity:0; }
+  to{ transform: scale(1) translateY(0); opacity:1; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: .001s !important; transition-duration: .001s !important; }
+}

@@ -1,0 +1,44 @@
+name: Build Android APK
+
+# main ব্রাঞ্চে পুশ হলে, বা ম্যানুয়ালি Actions ট্যাব থেকে রান করলে এই workflow চলবে
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: কোড চেকআউট করা
+        uses: actions/checkout@v4
+
+      - name: Node.js সেটআপ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: JDK সেটআপ (Android বিল্ডের জন্য)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: npm প্যাকেজ ইনস্টল
+        run: npm install
+
+      - name: Capacitor ওয়েব অ্যাসেট সিঙ্ক
+        run: npx cap sync android
+
+      - name: gradlew এক্সিকিউটেবল করা
+        run: chmod +x android/gradlew
+
+      - name: ডিবাগ APK বিল্ড করা
+        working-directory: android
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: APK আপলোড করা (Artifacts থেকে ডাউনলোড করুন)
+        uses: actions/upload-artifact@v4
+        with:
+          name: saplu-ludu-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk

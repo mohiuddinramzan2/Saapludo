@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22344d"/>
+      <stop offset="1" stop-color="#101b2c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="36" fill="url(#bg)"/>
+
+  <!-- ladder, top right -->
+  <g stroke="#E8A33D" stroke-width="7" stroke-linecap="round">
+    <line x1="138" y1="20" x2="118" y2="86"/>
+    <line x1="172" y1="20" x2="152" y2="86"/>
+    <line x1="124" y1="36" x2="166" y2="36"/>
+    <line x1="120" y1="58" x2="162" y2="58"/>
+    <line x1="116" y1="80" x2="158" y2="80"/>
+  </g>
+
+  <!-- snake, bottom left -->
+  <path d="M28 178 C 24 150, 56 150, 52 128 C 48 106, 18 110, 22 86" fill="none" stroke="#D64545" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="22" cy="84" r="9" fill="#D64545"/>
+  <circle cx="19" cy="81" r="2.2" fill="#F5E6C8"/>
+
+  <!-- dice, center -->
+  <g>
+    <rect x="58" y="92" width="84" height="84" rx="16" fill="#F5E6C8" stroke="#101b2c" stroke-width="3"/>
+    <circle cx="80" cy="114" r="7" fill="#2B2118"/>
+    <circle cx="120" cy="114" r="7" fill="#2B2118"/>
+    <circle cx="100" cy="134" r="7" fill="#2B2118"/>
+    <circle cx="80" cy="154" r="7" fill="#2B2118"/>
+    <circle cx="120" cy="154" r="7" fill="#2B2118"/>
+  </g>
+
+  <!-- four ludo dots -->
+  <circle cx="44" cy="40" r="10" fill="#3FA34D"/>
+  <circle cx="44" cy="40" r="10" fill="none" stroke="#101b2c" stroke-width="2.5"/>
+</svg>
