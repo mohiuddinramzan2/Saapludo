@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">সাপলুডু ও লুডু</string>
+    <string name="title_activity_main">সাপলুডু ও লুডু</string>
+    <string name="package_name">com.bangla.saplulu</string>
+    <string name="custom_url_scheme">com.bangla.saplulu</string>
+</resources>
